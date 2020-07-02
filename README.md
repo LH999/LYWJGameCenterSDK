@@ -64,7 +64,7 @@ AppDelegate.h 内添加
      //1.先设置 环境 
     [[LYGCSingletion sharedManager] setDebug:YES];
     //2.初始化sdk (性别传 1 男，2 女)
-    [[LYGCSingletion sharedManager] lycg_initSdkwithAppid:@"00f03ce2790afbb5e81fadaf0c4fe3e9178899dd" withKey:@"eb01f09560f0f5e4fd2fd69369943789853075e5" withAccount:@"13134308070" withNickname:@"heheh" withSex:@"2" withHeadimgurl:@"http://www.baidu.com"];
+    [[LYGCSingletion sharedManager] lycg_initSdkwithAppid:@" xxx " withKey:@" xxx " withAccount:@" xxx " withNickname:@" xxx " withSex:@"2" withHeadimgurl:@" xxx "];
     
   ```
 ##### 游戏中心
