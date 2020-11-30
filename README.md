@@ -7,7 +7,8 @@
 如果宿主工程没有集成穿山甲SDK,请先集成穿山甲SDK，成功之后，再继续后续操作。
 
 ThreeLib文件夹中 BUAdSDK 文件夹即为穿山甲SDK,可直接导入，或者删除BUAdSDK 文件夹,按照穿山甲官网提示操作（穿山甲SDK地址：https://partner.oceanengine.com/union/media/union/download）
-如果直接使用ThreeLib文件夹中 BUAdSDK文件夹拖入，需添加以下依赖库：
+如果直接使用GameCenterLib文件夹中 CHJSDK文件夹拖入，需添加以下依赖库：
+
 ```
 工程需要在TARGETS -> Build Phases中找到Link Binary With Libraries，点击“+”，依次添加下列依赖库
 StoreKit.framework
@@ -29,8 +30,21 @@ libsqlite3.tbd
 如果以上依赖库增加完仍旧报错，请添加ImageIO.framework。
 
 ```
-穿山甲sdk接入成功后
-将LYGCApi 、ThreeLib 文件夹拖进项目 （ThreeLib文件夹中 BUAdSDK 文件夹是穿山甲SDK，请注意不要二次拖入）
+穿山甲sdk接入成功后（可成功运行）
+将LYGameCenterSDK.framework 、LYGCResource.bundle、LYResource.bundle、LYSDK.framework、GameCenterLib 文件夹添加到项目中 （其中ThreeLib文件夹中 CHJSDK 文件夹是穿山甲SDK，请注意不要二次添加）
+
+
+⚠️其中gameReources文件夹需格外注意⚠️
+
+```
+gameResources 文件夹里面内容不参与编译，需单独加入。
+需在项目中自己新建一个文件夹例如：GameResoures（显示黄色），然后添加gameResources文件夹中内容(注意：是添加文件夹中包含的内容，而不是gameResources文件夹)。
+Added folders 时选择 Create folder rederences。 
+添加成功后，GameResoures文件夹显示黄色，GameResoures文件夹内包含的文件夹显示为蓝色。
+（此时GameResoures文件夹内应该是包含gameResources文件夹内所有子内容，是不是包含gameResources文件夹。）
+
+```
+
 ```
 在Build Settings , Other Linker Flags 加入 -ObjC
 ```
@@ -71,9 +85,9 @@ AppDelegate.h 内添加
 
 ```
  导入头文件
-#import <LYGameCenterSDK/LYGameCenterViewController.h>
+#import <LYGameCenterSDK/LYGameCenterShopViewController.h>
  
- LYGameCenterViewController * centerView = [[LYGameCenterViewController alloc]init];
+ LYGameCenterShopViewController * centerView = [[LYGameCenterShopViewController alloc]init];
  UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:centerView];
  nav.modalPresentationStyle=UIModalPresentationOverCurrentContext;
  [self presentViewController:nav animated:YES completion:nil];
@@ -83,6 +97,9 @@ AppDelegate.h 内添加
 ## 冲突
 如果有三方库冲突，请直接移除ThirdLib文件夹中对应的三方库 
 
+其他冲突，可参考 https://github.com/LH999/LYWJSDK/blob/master/README.md 
+（此SDK也接入了游戏SDK）
+ 
 
 
 
