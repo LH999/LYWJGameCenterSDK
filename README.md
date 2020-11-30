@@ -1,6 +1,6 @@
 ## 链游玩家游戏中心SDK  iOS版本
 ## 介绍
-链游玩家游戏中心SDK提供游戏中心界面。
+链游玩家游戏中心SDK提供游戏中心界面。此SDK只支持真机，不支持模拟器。
 
 ## 项目集成
 此SDK依赖第三方穿山甲SDK
@@ -75,10 +75,12 @@ AppDelegate.h 内添加
  ` 方法中 初始化下方代码  `setDebug` 方法开启sdk debug 和 release模式 （请先设置模式再初始化代码）
  ， 初始化参数一是链游玩家平台分配的 `appid` 参数二是链游玩家平台分配的 `key`， 参数三是用户账户`account`，参数四是用户昵称`nickname`，参数五是用户性别`sex`(传数字：1男2女)，参数六是用户头像`headerimgurl`
 ```
-     //1.先设置 环境 
-    [[LYGCSingletion sharedManager] setDebug:YES];
-    //2.初始化sdk (性别传 1 男，2 女)
-    [[LYGCSingletion sharedManager] lycg_initSdkwithAppid:@" xxx " withKey:@" xxx " withAccount:@" xxx " withNickname:@" xxx " withSex:@"2" withHeadimgurl:@" xxx "];
+ //使用SDK前请先登录   
+    
+  //1.先设置 环境 
+ [[LYGCSingletion sharedManager] setDebug:YES];
+ //2.初始化sdk (性别传 1 男，2 女)
+ [[LYGCSingletion sharedManager] lycg_initSdkwithAppid:@" xxx " withKey:@" xxx " withAccount:@" xxx " withNickname:@" xxx " withSex:@"2" withHeadimgurl:@" xxx "];
     
   ```
 ##### 游戏中心
